@@ -1,0 +1,36 @@
+<form [formGroup]="locationForm" class="location-form">
+    <h2>Add Location</h2>
+    <label>
+        Location Name <span class="required">*</span>
+    </label>
+
+    <input type="text" formControlName="locationName">
+
+    <div class="error" *ngIf="locationName?.touched">
+
+        <span *ngIf="locationName?.errors?.['required']">
+            Location Name is required.
+        </span>
+
+        <span *ngIf="locationName?.errors?.['maxlength']">
+            Maximum 20 characters.
+        </span>
+
+        <span *ngIf="locationName?.errors?.['pattern']">
+            Only alphabets are allowed.
+        </span>
+
+        <span *ngIf="locationName?.errors?.['consecutiveSpaces']">
+            Only a single space is allowed between words.
+        </span>
+
+        <span *ngIf="locationName?.errors?.['duplicate']">
+            Location name already exists.
+        </span>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn add-btn form-btn" (click)="addLocation()">Add</button>
+        <button type="button" class="btn btn-close form-btn" (click)="closeForm()">Close</button>
+    </div>
+</form>

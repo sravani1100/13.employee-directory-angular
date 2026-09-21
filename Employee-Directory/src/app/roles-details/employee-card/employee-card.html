@@ -1,0 +1,48 @@
+<div class="emp-card">
+
+    <div class="emp-card-header">
+
+        <img
+            class="emp-card-avatar"
+            src="assets/images/avatar-1.png"
+            alt="Employee">
+
+        <div class="emp-card-info">
+
+            <span class="emp-card-name">
+                {{ employee.fullName }}
+            </span>
+
+            <span class="emp-card-role">
+                {{ employee.roleName }}
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="emp-card-details">
+
+        <div class="emp-detail-item">
+            {{ employee.employeeNumber }}
+        </div>
+
+        <div class="emp-detail-item">
+            {{ employee.email }}
+        </div>
+
+        <div class="emp-detail-item">
+            {{ employee.department || 'N/A' }}
+        </div>
+
+        <div class="emp-detail-item">
+            {{ employee.location || 'N/A' }}
+        </div>
+
+    </div>
+
+    <div class="emp-card-footer">
+        <span>View →</span>
+    </div>
+
+</div>

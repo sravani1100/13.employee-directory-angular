@@ -1,0 +1,93 @@
+<div class="content-filters" (click)="$event.stopPropagation()">
+    <div class="filters-left">
+
+        <span class="filter-label">
+            Filter
+            <img src="assets/images/bars.png" class="filter-label-icon">
+        </span>
+
+        <!-- STATUS -->
+        <div class="filter-dropdown" *ngIf="showStatus">
+            <button class="filter-btn" (click)="toggleDropdown('status')">
+                <span>
+                    Status
+                    <span *ngIf="getSelectedCount('status')">
+                        ({{selectedStatus.length}})
+                    </span>
+                </span>
+                <img src="assets/images/arrow-down-2-svgrepo-com.svg">
+            </button>
+
+            <div class="dropdown-menu" *ngIf="openDropdown === 'status'" [style.display]="openDropdown === 'status' ? 'block' : 'none'">
+                <label *ngFor="let status of statuses; let i=index">
+                    <input type="checkbox"
+                           [value]="statusValues[i]"
+                           (change)="toggleStatus(statusValues[i])"
+                           [checked]="selectedStatus.includes(statusValues[i])">
+                    {{status}}
+                </label>
+            </div>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="filter-dropdown">
+            <button class="filter-btn" (click)="toggleDropdown('location')">
+                <span>
+                    Location
+                    <span *ngIf="getSelectedCount('location')">
+                        ({{selectedLocation.length}})
+                    </span>
+                </span>
+                <img src="assets/images/arrow-down-2-svgrepo-com.svg">
+            </button>
+
+            <div class="dropdown-menu" *ngIf="openDropdown === 'location'" [style.display]="openDropdown === 'location' ? 'block' : 'none'">
+                <label *ngFor="let loc of locations">
+                    <input type="checkbox"
+                           [value]="loc.locationId"
+                           (change)="toggleLocation(loc.locationId)"
+                           [checked]="selectedLocation.includes(loc.locationId)">
+                    {{loc.locationName}}
+                </label>
+            </div>
+        </div>
+
+        <!-- DEPARTMENT -->
+        <div class="filter-dropdown">
+            <button class="filter-btn" (click)="toggleDropdown('department')">
+                <span>
+                    Department
+                    <span *ngIf="getSelectedCount('department')">
+                        ({{selectedDepartment.length}})
+                    </span>
+                </span>
+                <img src="assets/images/arrow-down-2-svgrepo-com.svg">
+            </button>
+
+            <div class="dropdown-menu" *ngIf="openDropdown === 'department'" [style.display]="openDropdown === 'department' ? 'block' : 'none'">
+                <label *ngFor="let dept of departments">
+                    <input type="checkbox"
+                           [value]="dept.departmentId"
+                           (change)="toggleDepartment(dept.departmentId)"
+                           [checked]="selectedDepartment.includes(dept.departmentId)">
+                    {{dept.departmentName}}
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="filter-right">
+        <button class="btn btn-outline btn-reset"
+                (click)="onReset()"
+                [disabled]="!hasSelection()">
+            Reset
+        </button>
+
+        <button class="btn btn-danger btn-apply"
+                (click)="onApply()"
+                [disabled]="!hasSelection()">
+            Apply
+        </button>
+    </div>
+</div>

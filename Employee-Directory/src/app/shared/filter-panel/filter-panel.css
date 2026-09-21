@@ -1,0 +1,122 @@
+.content-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 1rem;
+    border: 0.01rem solid rgb(255, 193, 179);
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+    background-color: rgba(253, 242, 242);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filters-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-label-icon {
+    height: 0.9rem;
+    margin: 1rem 0;
+    filter: invert(17%) sepia(97%) saturate(7470%) hue-rotate(356deg) brightness(95%) contrast(97%);
+    width: 1.2rem;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgb(247, 99, 92);
+    font-size: 0.9rem;
+}
+
+.filter-dropdown {
+    position: relative;
+    z-index: 10;
+}
+
+.filter-btn {
+    border: 0.01rem solid rgb(255, 193, 179);
+    background-color: white;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    color: rgb(115, 116, 133);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    width: 8.5rem;
+    height: 2.2rem;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 0.01rem solid rgb(255, 193, 179);
+    font-size: 0.8rem;
+    z-index: 1000;
+    width: 100%;
+    overflow-x: auto;
+    max-height: 11rem;
+}
+
+.dropdown-menu label {
+    display: block;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+}
+
+.dropdown-menu input[type="checkbox"] {
+    position: relative;
+    top: 0.1rem;
+    cursor: pointer;
+}
+
+.filter-right {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.filter-btn img {
+    width: 1rem;
+    filter: contrast(0.5);
+}
+
+.btn-danger {
+    box-shadow: 0 0 0.1rem 0.2rem rgba(246, 72, 66, 0.1);
+    background-color:  rgb(246, 72, 66);
+    color:  rgb(255, 252, 235);
+    border: none;
+}
+
+.btn-outline {
+    color: rgb(246, 72, 66);
+    background-color: white;
+}
+
+.btn-reset{
+    border: 0.03rem solid rgb(246, 72, 66);
+    color: rgb(246, 72, 66);
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }

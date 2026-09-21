@@ -1,0 +1,94 @@
+<div class="role-card">
+
+  <!-- Header -->
+  <div class="role-card-header">
+
+    <div class="role-card-title">
+      {{ role.roleName }}
+    </div>
+
+    <img src="assets/images/edit.svg" alt="edit" class="role-card-edit">
+
+  </div>
+
+  <!-- Body -->
+  <div class="role-card-body">
+
+    <!-- Department -->
+    <div class="role-detail-row">
+
+      <div class="role-detail-label">
+        Department
+      </div>
+
+      <div>
+        {{ role.departmentName || 'N/A' }}
+      </div>
+
+    </div>
+
+    <!-- Location -->
+    <div class="role-detail-row">
+
+      <div class="role-detail-label">
+        Location
+      </div>
+
+      <div>
+        {{ role.locationName || 'N/A' }}
+      </div>
+
+    </div>
+
+    <!-- Employees -->
+    <div class="role-detail-row total-employees-row">
+
+      <div class="role-detail-label">
+        Total Employees
+        ({{ role.totalEmployees }})
+      </div>
+
+      <div class="employee-avatars">
+
+        <!-- No employees -->
+        <span class="no-employees" *ngIf="!role.totalEmployees || role.totalEmployees === 0">0</span>
+
+        <!-- Employee images -->
+        <!-- <ng-container
+            *ngIf="role.employees && role.employees.length > 0">
+  
+            <img
+              *ngFor="let emp of role.employees | slice:0:4"
+              [src]="emp.profileImage"
+              [alt]="emp.firstName || 'avatar'"
+              [title]="emp.firstName + ' ' + emp.lastName"> -->
+
+        <!-- More count -->
+        <!-- <span
+              class="more-avatars"
+              *ngIf="role.totalEmployees > 4">
+  
+              +{{ role.totalemployees - 4 }}
+  
+            </span>
+  
+          </ng-container> -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="role-card-footer">
+
+    <a class="view-all-link" [routerLink]="['/role/role-details']" [queryParams]="{ role: role.roleName }">
+
+      View all Employees →
+
+    </a>
+
+  </div>
+
+</div>

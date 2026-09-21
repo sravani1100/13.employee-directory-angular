@@ -1,0 +1,72 @@
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <main class="main-content">
+
+        <app-searchbar (search)="onSearch($event)"></app-searchbar>
+
+        <div class="page-container">
+
+            <div class="page-header">
+
+                <div class="page-breadcrumb">
+                    <div class="breadcrumb">
+                        <h3 class="page-title">Roles</h3>
+                    </div>
+
+                    <p class="page-subtitle">
+                        All the roles are configured here
+                    </p>
+                </div>
+
+                <div class="header-actions" *ngIf="isAdmin()">
+                    <button class="btn btn-danger btn-add btn-add-role" (click)="openAddRoleForm()">
+
+                        <span>+</span>
+                        ADD ROLE
+
+                    </button>
+                </div>
+ 
+            </div>
+
+            <app-filter-panel  [showStatus]="false"
+            (applyFilters)="onApplyFilters($event)"
+            (resetFilters)="onResetFilters()"></app-filter-panel>
+
+            <div class="roles-grid">
+                @if (filteredRoleCards().length > 0) {
+                  @for (role of filteredRoleCards(); track role.roleId) {
+                    <app-role-card
+                      [role]="role">
+                    </app-role-card>
+                  }
+                } @else {
+                  <div class="no-data">
+                    No Role Available
+                  </div>
+                }
+              </div>
+        </div>
+    </main>
+</div>
+
+
+<div class="modal-overlay" *ngIf="showForm">
+
+    <app-role-form [locations]="locations"
+    [departments]="departments" [isView]="isView" (save)="saveRole($event)"
+        (close)="closeForm()">
+    </app-role-form>
+
+</div>
+
+<app-confirm-modal
+  [visible]="confirmVisible"
+  [title]="'Confirm'"
+  [message]="confirmMessage"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()"
+  (close)="closeForm()">
+</app-confirm-modal>

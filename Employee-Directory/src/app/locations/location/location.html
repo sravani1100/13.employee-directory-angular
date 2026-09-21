@@ -1,0 +1,54 @@
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <main class="main-content">
+
+        <header class="top-bar">
+            <app-searchbar></app-searchbar>
+        </header>
+
+        <div class="page-container">
+
+            <div class="page-header">
+
+                <div>
+                    <div class="breadcrumb">
+                        <a>Location</a>
+                    </div>
+
+                    <p class="page-subtitle">
+                        All Locations are configured here.
+                    </p>
+                </div>
+
+                <button class="btn btn-danger btn-add" (click)="openForm()" *ngIf="isAdmin()">
+                    <span>+</span>
+                    ADD LOCATION
+                </button>
+            </div>
+
+            <div class="roles-grid">
+
+                @for (location of locations(); track location.locationId){
+                <app-location-card [location]="location"></app-location-card>
+                }
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal-overlay" *ngIf="showForm">
+    <app-location-form (save)="saveLocation($event)" (close)="closeForm()"></app-location-form>
+</div>
+
+
+<app-confirm-modal
+  [visible]="confirmVisible"
+  [title]="'Confirm'"
+  [message]="confirmMessage"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()"
+  (close)="closeForm()">
+</app-confirm-modal>

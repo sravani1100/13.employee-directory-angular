@@ -1,0 +1,233 @@
+<form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()" class="add-btn-form" [class.view-mode]="isView" >
+
+  <div class="form-header ">
+    <h2>
+      {{
+      isView
+      ? 'Employee Details'
+      : isEdit
+      ? 'Edit Employee'
+      : 'Add Employee'
+      }}
+    </h2>
+
+    <img src="assets/images/close-icon.svg" (click)="closeForm()">
+  </div>
+
+  <div *ngIf="isEdit || isView">
+
+    <label>Employee Number</label>
+  
+    <input 
+      type="text" 
+      formControlName="employeeNumber"
+      placeholder="Employee Number">
+  
+  </div>
+
+  <label>First Name <span class="required">*</span></label>
+
+  <input type="text" formControlName="firstName" placeholder="Enter First Name">
+
+  <div class="error" *ngIf="f['firstName'].touched">
+    <span *ngIf="f['firstName'].errors?.['required']">
+      First name is required.
+    </span>
+
+    <span *ngIf="f['firstName'].errors?.['maxlength']">
+      Maximum 20 characters allowed.
+    </span>
+
+    <span *ngIf="f['firstName'].errors?.['pattern']">
+      Only alphabets are allowed.
+    </span>
+  
+    <span *ngIf="f['firstName'].errors?.['consecutiveSpaces']">
+      Only a single space is allowed between words.
+    </span>
+  </div>
+
+  <label>Last Name <span class="required">*</span></label>
+
+  <input type="text" formControlName="lastName" placeholder="Enter Last Name">
+
+  <div class="error" *ngIf="f['lastName'].touched">
+
+    <span *ngIf="f['lastName'].errors?.['required']">
+      Last name is required.
+    </span>
+
+    <span *ngIf="f['lastName'].errors?.['maxlength']">
+      Maximum 20 characters allowed.
+    </span>
+
+    <span *ngIf="f['lastName'].errors?.['pattern']">
+      Only alphabets are allowed.
+    </span>
+  
+    <span *ngIf="f['lastName'].errors?.['consecutiveSpaces']">
+      Only a single space is allowed between words.
+    </span>
+
+  </div>
+
+  <label>Email <span class="required">*</span></label>
+
+  <input type="email" formControlName="email" placeholder="Enter Email">
+
+  <div class="error" *ngIf="f['email'].touched">
+
+    <span *ngIf="f['email'].errors?.['required']">
+      Email is required.
+    </span>
+
+    <span *ngIf="f['email'].errors?.['pattern']">
+      Only Gmail addresses ending with @gmail.com/.in are allowed.
+    </span>
+
+    <span *ngIf="f['email'].errors?.['emailExists']">
+      Email already exists.
+    </span>
+
+  </div>
+
+  <label>Mobile Number <span class="required">*</span></label>
+
+  <input type="text" formControlName="mobileNumber" placeholder="Enter Mobile Number">
+
+  <div class="error" *ngIf="f['mobileNumber'].touched">
+
+    <span *ngIf="f['mobileNumber'].errors?.['required']">
+      Mobile number is required.
+    </span>
+
+    <span *ngIf="f['mobileNumber'].errors?.['invalidStart']">
+      Mobile number must start with 6, 7, 8 or 9.
+    </span>
+  
+    <span *ngIf="f['mobileNumber'].errors?.['invalidLength']">
+      Mobile number must contain exactly 10 digits.
+    </span>
+
+    <span *ngIf="f['mobileNumber'].errors?.['mobileExists']">
+      Mobile number already exists.
+    </span>
+  
+  </div>
+
+  <label>Date Of Birth</label>
+
+  <input type="date" formControlName="dateOfBirth">
+
+  <label>Joining Date <span class="required">*</span></label>
+
+  <input type="date" formControlName="joiningDate">
+
+  <div class="error" *ngIf="f['joiningDate'].touched">
+
+    <span *ngIf="f['joiningDate'].errors?.['required']">
+      Joining Date is required.
+    </span>
+
+    <span *ngIf="f['joiningDate'].errors?.['invalidJoiningDate']">
+      Joining date must be greater than Date of Birth.
+    </span>
+
+  </div>
+
+  <label>Status</label>
+
+  <select formControlName="status">
+
+    <option [ngValue]="1">Active</option>
+    <option [ngValue]="2">Inactive</option>
+
+  </select>
+
+  <label>Location <span class="required">*</span></label>
+
+  <select formControlName="locationId">
+
+    <option [ngValue]="null"> Select Location</option>
+
+    <option *ngFor="let location of locations" [ngValue]="location.locationId">
+      {{ location.locationName }}
+    </option>
+
+  </select>
+
+  <label>Department <span class="required">*</span></label>
+
+  <select formControlName="departmentId">
+    <option [ngValue]="null">Select Department</option>
+
+    <option *ngFor="let department of departments" [ngValue]="department.departmentId">
+
+      {{ department.departmentName }}
+
+    </option>
+  </select>
+
+  <div class="error" *ngIf="f['departmentId'].touched">
+    <span *ngIf="f['departmentId'].errors?.['required']">
+      Department is required.
+    </span>
+  </div>
+
+  <label>Role <span class="required">*</span></label>
+
+<select formControlName="roleId">
+  <option [ngValue]="null" *ngIf="roles.length > 0">
+    Select Role
+  </option>
+
+  <option [ngValue]="null" disabled *ngIf="roles.length === 0">
+    No roles found
+  </option>
+
+  <option *ngFor="let role of roles" [ngValue]="role.roleId">
+    {{ role.roleName }}
+  </option>
+</select>
+
+  <label>Project</label>
+  <select formControlName="projectId">
+    <option [ngValue]="null">Select Project</option>
+    <option *ngFor="let project of projects" [ngValue]="project.projectId">
+      {{ project.projectName }}
+    </option>
+  </select>
+
+  <div class="error" *ngIf="f['locationId'].touched">
+
+    <span *ngIf="f['locationId'].errors?.['required']">
+      Location is required.
+    </span>
+
+  </div>
+
+  <label>Manager</label>
+
+  <select formControlName="managerId">
+
+    <option [ngValue]="null">Select Manager</option>
+
+    <option *ngFor="let manager of managers" [ngValue]="manager.employeeId">
+      {{ manager.firstName }}
+      {{ manager.lastName }}
+    </option>
+
+  </select>
+
+  <div class="form-actions" id="modal">
+
+    <button type="submit" class="btn btn-danger form-btn" *ngIf="!isView" [disabled]="employeeForm.invalid"
+      id="saveBtn">
+      {{ isEdit ? 'Update' : 'Save' }}
+    </button>
+
+    <button type="button" class="btn btn-danger form-btn" (click)="closeForm()">
+      Close
+    </button>
+  </div>
+</form>

@@ -1,0 +1,146 @@
+<div class="table-tools">
+  <div class="table-left-tools" *ngIf="isAdmin()">
+    <img src="assets/Interface/arrow-turn left -down.svg" alt="arrow-turn-left-down-icon">
+
+    <button class="btn btn-danger" id="deleteBtn" [disabled]="checkedEmployees.length === 0"
+      (click)="deleteSelectedEmployees()">Delete</button>
+
+  </div>
+
+  <div class="table-right-tools">
+    <img src="assets/Interface/table-add.svg" alt="table-add-icon">
+  </div>
+
+</div>
+
+<div class="table-container">
+  <table class="employee-table">
+    <thead class="table-head">
+      <tr>
+        <th *ngIf="isAdmin()">
+          <input type="checkbox" #selectBox
+            [checked]="employees.length > 0 && checkedEmployees.length === employees.length"
+            (change)="selectAll(selectBox.checked)">
+        </th>
+
+        <th (click)="sortTable('firstName')">
+          USER
+          <img src="assets/images/dropdown.png" alt="dropdown"
+            [class.asc]="sortField==='firstName' && sortDirection==='asc'"
+            [class.desc]="sortField==='firstName' && sortDirection==='desc'">
+        </th>
+        <th (click)="sortTable('location')">
+          LOCATION
+          <img src="assets/images/dropdown.png" alt="dropdown"
+            [class.asc]="sortField==='location' && sortDirection==='asc'"
+            [class.desc]="sortField==='location' && sortDirection==='desc'">
+        </th>
+        <th (click)="sortTable('department')">
+          DEPARTMENT
+          <img src="assets/images/dropdown.png" alt="dropdown"
+            [class.asc]="sortField==='department' && sortDirection==='asc'"
+            [class.desc]="sortField==='department' && sortDirection==='desc'">
+        </th>
+        <th (click)="sortTable('roleName')">
+          ROLE
+          <img src="assets/images/dropdown.png" alt="dropdown"
+            [class.asc]="sortField==='roleName' && sortDirection==='asc'"
+            [class.desc]="sortField==='roleName' && sortDirection==='desc'">
+        </th>
+        <th (click)="sortTable('employeeNumber')">
+          EMP NO
+          <img src="assets/images/dropdown.png" alt="dropdown"
+            [class.asc]="sortField==='employeeNumber' && sortDirection==='asc'"
+            [class.desc]="sortField==='employeeNumber' && sortDirection==='desc'">
+        </th>
+        <th (click)="sortTable('status')">
+          STATUS
+          <img src="assets/images/dropdown.png" alt="dropdown"
+            [class.asc]="sortField==='status' && sortDirection==='asc'"
+            [class.desc]="sortField==='status' && sortDirection==='desc'">
+        </th>
+        <th (click)="sortTable('joiningDate')">
+          JOIN DATE
+          <img src="assets/images/dropdown.png" alt="dropdown"
+            [class.asc]="sortField==='joiningDate' && sortDirection==='asc'"
+            [class.desc]="sortField==='joiningDate' && sortDirection==='desc'">
+        </th>
+        <th>
+          ACTIONS
+        </th>
+
+      </tr>
+    </thead>
+
+    <tbody class="table-body">
+      <tr *ngFor="let employee of employees; let i = index">
+        <td *ngIf="isAdmin()">
+          <input type="checkbox" #employeeCheckbox [checked]="checkedEmployees.includes(employee.employeeNumber)"
+            (change)="checkedEmployee(employeeCheckbox.checked, employee.employeeNumber)">
+        </td>
+
+        <td>
+          <div class="user-cell">
+            <div class="avatar-initials" *ngIf="employee?.firstName && employee?.lastName">
+              {{
+              employee.firstName.charAt(0) +
+              employee.lastName.charAt(0)
+              }}
+            </div>
+
+            <div class="user-cell-info">
+              <span class="user-name-cell">
+                {{employee.firstName}}
+                {{employee.lastName}}
+              </span>
+
+              <span class="user-email-cell">
+                {{employee.email}}
+              </span>
+            </div>
+          </div>
+        </td>
+
+        <td>{{employee.location}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.roleName}}</td>
+        <td>{{employee.employeeNumber}}</td>
+
+        <td>
+          <button class="status-badge" [class.status-active]="employee.status===1"
+            [class.status-inactive]="employee.status===2">
+
+            {{getStatus(employee.status)}}
+
+          </button>
+        </td>
+
+        <td>{{employee.joiningDate | date:'dd-MM-yyyy'}}</td>
+
+        <td>
+          <div class="menu-container action-menu">
+            <span class="ellipsis" (click)="toggleMenu(i, $event)">...</span>
+
+            <div class="menu-options" *ngIf="selectedMenuIndex === i">
+              <div class="menu-options-item" (click)="viewEmployee(employee)">
+                View
+              </div>
+
+              <div class="menu-options-item" (click)="editEmployee(employee)" *ngIf="isAdmin()">
+                Edit
+              </div>
+
+              <div class="menu-options-item" (click)="deleteEmployee(employee.employeeNumber)" *ngIf="isAdmin()">
+                Delete
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr *ngIf="employees.length === 0">
+        <td colspan="9" style="text-align: center">No employee found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

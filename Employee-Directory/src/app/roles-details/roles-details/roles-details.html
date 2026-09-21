@@ -1,0 +1,41 @@
+<body>
+    <div class="container">
+        <app-sidebar></app-sidebar>
+        <main class="main-content">
+            <header class="top-bar">
+                <app-searchbar></app-searchbar>
+            </header>
+
+            <div class="page-container">
+                <div class="page-header">
+                    <div class="page-breadcrumb">
+                        <div class="breadcrumb">
+                            <a>Roles</a>
+                            <span>></span>
+                            <span>Employees</span>
+                        </div>
+                        <p class="page-subtitle">All the roles are configured here</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="section-title">Role Description</h2>
+                    <p class="section-description">Configure the providers that are available to users
+                        when they sign in. Configure the providers that are available to users when they sign in.
+                        Configure the providers that are available to users when they sign in.Configure the
+                        providers that are available to users when they sign in.</p>
+                </div>
+
+                <div class="employee-card-grid">
+    
+                    <app-employee-card
+                        *ngFor="let employee of employees()"
+                        [employee]="employee">
+                    </app-employee-card>
+            
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+

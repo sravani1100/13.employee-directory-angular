@@ -1,0 +1,51 @@
+.alphabet-filter {
+    display: grid;
+    grid-template-columns: repeat(27, 1fr);
+    flex-wrap: nowrap;
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.6rem;
+}
+
+.btn-icon {
+    height: 1.2rem;
+    width: 1.2rem;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(1) contrast(0.5);
+}
+
+.alpha-btn {
+    color: rgb(154, 154, 160);
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0.8rem;
+}
+
+.alpha-btn-img {
+    border-radius: 0.3rem;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.alpha-btn:hover,
+.alpha-btn.active {
+    color: white;
+    background-color: rgb(246, 72, 66);
+}
+
+.alpha-btn-img.active img {
+    /* filter: invert(17%) sepia(97%) saturate(7470%) hue-rotate(356deg) brightness(95%) contrast(97%); */
+    filter: initial;
+}

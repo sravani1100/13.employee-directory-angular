@@ -1,0 +1,44 @@
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+    <main class="main-content">
+        <header class="top-bar">
+            <app-searchbar></app-searchbar>
+        </header>
+
+        <div class="page-container">
+            <div class="page-header">
+                <div>
+                    <div class="breadcrumb">
+                        <a>Department</a>
+                    </div>
+
+                    <p class="page-subtitle">
+                        All Departments are configured here.
+                    </p>
+                </div>
+
+                <button class="btn btn-danger btn-add" (click)="openForm()" *ngIf="isAdmin()">
+                    <span>+</span>
+                    ADD Department
+                </button>
+
+            </div>
+
+            <div class="department-grid">
+                @for (department of departments(); track department.departmentId) {
+                <app-department-card [department]="department"></app-department-card>
+                }
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal-overlay" *ngIf="showForm">
+    <app-department-form (save)="saveDepartment($event)" (close)="closeForm()">
+    </app-department-form>
+</div>
+
+<app-confirm-modal [visible]="confirmVisible" [title]="'Confirm'" [message]="confirmMessage" (confirm)="onConfirm()"
+    (cancel)="onCancel()" (close)="closeForm()">
+</app-confirm-modal>

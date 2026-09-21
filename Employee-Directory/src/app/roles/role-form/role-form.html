@@ -1,0 +1,110 @@
+<div class="roles-form">
+
+  <div class="form-header">
+    <h2>ADD ROLE</h2>
+
+    <img
+      src="assets/images/close-icon.svg"
+      alt="close"
+      (click)="closeForm()">
+  </div>
+
+  <form
+    [formGroup]="roleForm"
+    (ngSubmit)="submitForm()">
+
+    <label>Location <span class="required">*</span></label>
+
+    <select formControlName="locationId">
+      <option [ngValue]="null">Select Location</option>
+    
+      <option
+        *ngFor="let location of locations"
+        [ngValue]="location.locationId">
+    
+        {{ location.locationName }}
+    
+      </option>
+    </select>
+
+    <div class="error" *ngIf="locationId?.touched">
+
+      <span *ngIf="locationId?.errors?.['required']">
+        Location is required.
+      </span>
+    
+    </div>
+
+    <label>Department <span class="required">*</span></label>
+
+    <select formControlName="departmentId">
+
+      <option [ngValue]="null">
+        Select Department
+      </option>
+    
+      <option
+        *ngFor="let department of departments"
+        [ngValue]="department.departmentId">
+    
+        {{ department.departmentName }}
+    
+      </option>
+    
+    </select>
+
+    <div class="error" *ngIf="departmentId?.touched">
+
+      <span *ngIf="departmentId?.errors?.['required']">
+        Department is required.
+      </span>
+    
+    </div>
+
+    <label>Role <span class="required">*</span></label>
+
+    <input
+      type="text"
+      formControlName="roleName"
+      placeholder="Enter role">
+
+    <div class="error"
+      *ngIf="roleName?.touched && roleName?.errors">
+
+      <span *ngIf="roleName?.errors?.['required']">
+        Role is required.
+      </span>
+
+      <span *ngIf="roleName?.errors?.['maxlength']">
+        Maximum 20 characters allowed.
+      </span>
+
+      <span *ngIf="roleName?.errors?.['pattern']">
+        Only alphabets are allowed.
+      </span>
+      
+      <span *ngIf="roleName?.errors?.['consecutiveSpaces']">
+        Only a single space is allowed between words.
+      </span>
+
+      <span *ngIf="roleName?.errors?.['duplicate']">
+        Role name already exists.
+      </span>
+      
+    </div>
+
+    <button
+      type="submit"
+      class="form-btn" id="addBtn"
+      [disabled]="roleForm.invalid">
+      Save
+    </button>
+
+    <button
+      type="button"
+      class="btn-cancel form-btn"
+      (click)="closeForm()">
+      Close
+    </button>
+  </form>
+</div>

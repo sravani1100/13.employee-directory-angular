@@ -1,0 +1,77 @@
+.search-bar {
+    box-shadow: 0rem 0rem 0.2rem 0.2rem rgb(217 131 131 / 20%);
+    height: 4.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 1rem 0 2rem;
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    margin-top: 0.3rem;
+    width: 100%;
+    background: white;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-left: -3rem;
+    gap: 1rem;
+}
+.search-icon {
+    margin-left: 1.5rem;
+}
+.search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    min-width: 0;
+    font-size: 0.8rem;
+    font-size: 1rem;
+    opacity: 0.5;
+}
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+.icon-btn {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+.user-name {
+    font-size: 0.9rem;
+    color: rgb(100, 95, 88);
+}
+
+.user-role {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    cursor: pointer;
+    margin-left: 0.6rem;
+}
+
+.user-profile img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.user-profile select {
+    border: none;
+    background: none;
+    outline: none;
+}

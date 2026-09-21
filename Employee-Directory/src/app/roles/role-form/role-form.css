@@ -1,0 +1,97 @@
+.roles-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 32rem;
+    height: 23rem;
+    background: white;
+    padding: 1.2rem;
+    border-radius: 0.6rem;
+    z-index: 1000;
+    overflow: auto;
+    box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.15);
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.form-header h2 {
+    text-align: center;
+}
+
+.form-header img {
+    width: 1.3rem;
+    height: 1.3rem;
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    margin-top: 0.8rem;
+}
+
+.roles-form input,
+.roles-form select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+    border-radius: 0.3rem;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.roles-form input:focus,
+.roles-form select:focus {
+    border-color: #f64842;
+}
+
+.form-btn {
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+}
+
+.btn-cancel {
+    background-color: rgb(246,72,66);
+    color: white;
+}
+
+#addBtn {
+    background: #3bd938;
+    color: #fff;
+}
+
+.form-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.roles-form button + button {
+        margin-left: 0.5rem;
+}
+
+.required {
+    color: red;
+    font-weight: bold;
+}
+
+.form-header:hover img {
+    filter: invert(17%) sepia(97%) saturate(7470%) hue-rotate(356deg) brightness(95%) contrast(97%);
+}
+
+.error {
+    color: red;
+    margin-top: .2rem;
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "empId": "TE00001",
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "email": "alice@gmail.com",
+    "location": "Hyderabad",
+    "department": "HR",
+    "role": "HR Intern",
+    "status": "Active",
+    "joinDt": "2022-01-15",
+    "photo": "../assets/images/avatar-1.png"
+  },
+  {
+    "empId": "TE00002",
+    "firstName": "Bob",
+    "lastName": "Smith",
+    "email": "bob@gmail.com",
+    "location": "Bangalore",
+    "department": "Finance",
+    "role": "Finance Advicer",
+    "status": "Inactive",
+    "joinDt": "2023-03-10",
+    "photo": "../assets/images/avatar-1.png"
+  },
+  {
+    "empId": "TE000222",
+    "firstName": "Mahesh",
+    "lastName": "Babu",
+    "email": "babu@gmail.com",
+    "location": "Chennai",
+    "department": "Finance",
+    "role": "Finance Advicer",
+    "status": "Inactive",
+    "joinDt": "2022-03-23",
+    "photo": "../assets/images/avatar-1.png"
+  },
+   {
+    "empId": "TE000234",
+    "firstName": "Mahesh",
+    "lastName": "Babu",
+    "email": "babu@gmail.com",
+    "location": "Chennai",
+    "department": "Finance",
+    "role": "Finance Advicer",
+    "status": "Inactive",
+    "joinDt": "2022-03-23",
+    "photo": "../assets/images/avatar-1.png"
+  },
+    {
+    "empId": "TE000235",
+    "firstName": "Ramesh",
+    "lastName": "Babu",
+    "email": "babu@gmail.com",
+    "location": "Hyderabad",
+    "department": "HR",
+    "role": "HR Manager",
+    "status": "Inactive",
+    "joinDt": "2022-03-30",
+    "photo": "../assets/images/avatar-1.png"
+  },
+   {
+    "empId": "TE000500",
+    "firstName": "Suresh",
+    "lastName": "Babu",
+    "email": "babu@gmail.com",
+    "location": "Hyderabad",
+    "department": "HR",
+    "role": "HR Manager",
+    "status": "Inactive",
+    "joinDt": "2022-02-12",
+    "photo": "../assets/images/avatar-1.png"
+  }
+]

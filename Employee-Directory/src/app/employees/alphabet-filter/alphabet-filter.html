@@ -1,0 +1,18 @@
+<div class="alphabet-filter">
+    <button
+      class="alpha-reset-btn alpha-btn-img"
+      [class.active]="activeLetter !== null"
+      (click)="resetFilter()"
+      title="Clear filter"
+    ><img src="assets/images/Vector.png" alt="filter-icon" class="btn-icon"></button>
+
+    <button
+      *ngFor="let letter of alphabet"
+      class="alpha-btn"
+      [class.active]="activeLetter === letter"
+      (click)="selectLetter(letter)"
+    >
+      {{ letter }}
+    </button>
+  </div>
+  

@@ -1,0 +1,28 @@
+<div
+  class="modal-overlay"
+  *ngIf="visible"
+>
+  <div class="modal-box">
+
+    <h3>{{ title }}</h3>
+
+    <p>{{ message }}</p>
+
+    <div class="modal-actions">
+
+      <button
+        class="btn btn-danger"
+        (click)="onConfirm()">
+        Confirm
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        (click)="onCancel()">
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+</div>

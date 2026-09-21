@@ -1,0 +1,45 @@
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+  }
+  
+  .modal-box{
+    width:400px;
+    background:#fff;
+    border-radius:8px;
+    padding:24px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+  }
+  
+  .modal-box h3{
+    margin:0 0 15px;
+  }
+  
+  .modal-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:20px;
+  }
+  
+  .btn{
+    padding:8px 18px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  
+  .btn-danger{
+    background:#dc3545;
+    color:#fff;
+  }
+  
+  .btn-secondary{
+    background:#6c757d;
+    color:#fff;
+  }

@@ -1,0 +1,44 @@
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+    <main class="main-content">
+        <header class="top-bar">
+            <app-searchbar></app-searchbar>
+        </header>
+
+        <div class="page-container">
+            <div class="page-header">
+                <div>
+                    <div class="breadcrumb">
+                        <a>Project</a>
+                    </div>
+
+                    <p class="page-subtitle">
+                        All Projects are configured here.
+                    </p>
+                </div>
+
+                <button class="btn btn-danger btn-add" (click)="openForm()" *ngIf="isAdmin()">
+                    <span>+</span>
+                    ADD PROJECT
+                </button>
+
+            </div>
+
+            <div class="project-grid">
+                @for (project of projects(); track project.projectId) {
+                <app-project-card [project]="project"></app-project-card>
+                }
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal-overlay" *ngIf="showForm">
+    <app-project-form (save)="saveProject($event)" (close)="closeForm()">
+    </app-project-form>
+</div>
+
+<app-confirm-modal [visible]="confirmVisible" [title]="'Confirm'" [message]="confirmMessage" (confirm)="onConfirm()"
+    (cancel)="onCancel()" (close)="closeForm()">
+</app-confirm-modal>

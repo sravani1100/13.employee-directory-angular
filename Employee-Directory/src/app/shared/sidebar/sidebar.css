@@ -1,0 +1,231 @@
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-shrink: 0;
+    width: 18rem;
+}
+.logo-icon-collapse {
+    display: none;
+}
+
+.side-bar.collapsed {
+    width: 6.7rem;
+}
+
+.side-bar.collapsed .collapse-btn {
+    transform: rotate(180deg);
+}
+
+.side-bar.collapsed .logo-icon {
+    display: none;
+}
+
+.side-bar.collapsed .logo-icon-collapse {
+    display: flex;
+}
+.side-bar-header {
+    height: 4.3rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    position: relative;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo-container img {
+    height: 2.2rem;
+    margin-top: 0.6rem;
+}
+
+.collapse-btn {
+    position: absolute;
+    right: 0.4rem;
+    top: 1.2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 1rem;
+}
+
+.side-bar-menu {
+    flex: 1;
+    padding: 1rem 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.menu-label {
+    color: rgb(223, 213, 200);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    padding: 0.2rem 1.5rem;
+}
+
+.menu-item-emp {
+    margin-bottom: 1rem;
+}
+
+.menu-item-role {
+    margin-top: 1rem;
+}
+
+.side-bar.collapsed .menu-label {
+    text-align: center;
+    padding: 0.6rem 0;
+    font-size: 0.6rem;
+    visibility: hidden;
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: rgb(127, 125, 120);
+    gap: 0.9rem;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 14.5rem;
+}
+
+.menu-item:hover {
+    background-color: #f6d6db;
+    color: red;
+    border-radius: 0.5rem;
+}
+
+.menu-item:hover img,
+.menu-item.active img,
+.form-header:hover img {
+    filter: invert(17%) sepia(97%) saturate(7470%) hue-rotate(356deg) brightness(95%) contrast(97%);
+}
+
+.menu-item.active {
+    background-color: #f6d6db;
+    color: red;
+    border-radius: 0.5rem;
+}
+
+.side-bar.collapsed .menu-item:hover {
+    background-color: rgb(255, 252, 235);
+}
+
+.side-bar.collapsed .menu-item {
+    position: relative;
+    right: 1rem;
+}
+
+.side-bar.collapsed .menu-item.active {
+    width: fit-content;
+}
+
+
+.menu-item:hover ::after,
+.menu-item.active ::after {
+    content: '';
+    position: absolute;
+    left: 16rem;
+    top: 0;
+    bottom: 0;
+    width: 0.3rem;
+    background-color: red;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.side-bar.collapsed .menu-item-role.active ::after {
+    content: none;
+}
+
+.menu-item img {
+    height: 1.5rem;
+    filter: grayscale(1);
+}
+
+.menu-item-arrow {
+    margin-left: auto;
+}
+
+.side-bar.collapsed .menu-item {
+    margin-left: 2rem;
+    width: 100%;
+}
+
+.side-bar.collapsed .menu-text,
+.side-bar.collapsed .menu-item-arrow {
+    display: none;
+}
+
+.update-card-container {
+    transition: opacity 0.3s;
+}
+
+.side-bar.collapsed .update-card-container {
+    display: none;
+}
+
+.update-card {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: rgba(254, 246, 246);
+    width: 16rem;
+    height: 9.5rem;
+}
+
+.update-title {
+    color: rgb(248, 94, 87);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.update-description {
+    font-size: 0.9rem;
+    color: rgb(211, 200, 186);
+    line-height: 1.4;
+}
+
+.update-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: rgb(255, 230, 214);
+    color: rgb(250, 118, 109);
+}
+
+.btn-danger {
+    background-color: rgb(246, 72, 66);
+    color: rgb(255, 255, 237);
+    box-shadow: 0 0 0.1rem 0.2rem rgba(246, 72, 66, 0.1);
+}
+
+ul {
+    list-style: none;   
+    margin: 0;          
+    padding: 0;         
+  }

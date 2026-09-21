@@ -1,0 +1,86 @@
+.location-form {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:32rem;
+    height:15rem;
+    padding:1.2rem;
+    background:white;
+    border-radius:.6rem;
+    overflow:auto;
+    z-index:1000;
+}
+
+.location-form h2 {
+    text-align:center;
+    margin-bottom:1rem;
+}
+
+label {
+    display:block;
+    margin-top:.8rem;
+    color:#555;
+    font-weight:500;
+}
+
+input {
+    width:100%;
+    padding:.6rem;
+    margin-top:.3rem;
+    border-radius:.4rem;
+    border:.05rem solid #ccc;
+    outline:none;
+}
+
+input:focus {
+    border-color:#f64842;
+}
+
+.error {
+    color:red;
+    margin-top:.3rem;
+}
+
+.form-actions {
+    display:flex;
+    justify-content:flex-end;
+    gap:1rem;
+    margin-top:1.5rem;
+}
+
+.btn-add-form {
+    background:#f64842;
+    color:white;
+}
+
+.btn-close {
+    border:.05rem solid #aaa;
+    background:white;
+    color:#555;
+}
+
+.add-btn {
+    background: #3bd938;
+    color: #fff;
+}
+
+.btn-close {
+    border:.05rem solid #aaa;
+    background:rgb(246, 72, 66);
+    color:#fff;
+}
+
+.form-btn {
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.required {
+    color: red;
+    font-weight: bold;
+}

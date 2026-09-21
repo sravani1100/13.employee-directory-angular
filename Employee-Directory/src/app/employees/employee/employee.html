@@ -1,0 +1,54 @@
+  @if (showForm() && addEmployee(); as employee) {
+    <div class="modal-overlay">
+    <app-employee-form
+      [employee]="employee"
+      [isEdit]="isEdit()"
+      [isView]="isView()"
+      (close)="closeForm()"
+      (save)="saveEmployee($event)">
+    </app-employee-form>
+  </div>
+  }
+
+<div class="container">
+
+  <app-sidebar></app-sidebar>
+
+  <main class="main-content">
+
+    <app-searchbar (search)="onSearch($event)"></app-searchbar>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div>
+          <h3 class="page-title">Employees</h3>
+          <p class="page-subtitle">
+            Find all of your company's employee accounts and their associated roles.
+          </p>
+        </div>
+
+        <div class="header-actions" *ngIf="isAdmin()">
+          <button class="btn btn-outline btn-export" (click)="exportToExcel()">
+            <img src="assets/images/Masked Icon.png" alt="export-icon">
+            EXPORT</button>
+          <button class="btn btn-danger btn-add" (click)="openAddEmployee()">
+            <span>+</span>
+            ADD EMPLOYEE
+          </button>
+        </div>
+      </div>
+
+      <app-alphabet-filter (letterSelected)="onLetterFilter($event)"></app-alphabet-filter>
+
+      <app-filter-panel (applyFilters)="onApplyFilters($event)" (resetFilters)="onResetFilters()"></app-filter-panel>
+
+      <app-employee-list [employees]="filteredEmployees()"  (edit)="editEmployee($event)" (view)="viewEmployee($event)"
+        (delete)="deleteEmployee($event)" (deleteSelected)="deleteSelectedEmployees($event)">
+      </app-employee-list>
+    </div>
+  </main>
+</div>
+
+<app-confirm-modal [visible]="confirmVisible" [title]="'Confirm'" [message]="confirmMessage" (confirm)="onConfirm()"
+  (cancel)="onCancel()" (close)="closeForm()">
+</app-confirm-modal>

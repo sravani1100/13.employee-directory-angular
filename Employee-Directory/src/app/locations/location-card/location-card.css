@@ -1,0 +1,41 @@
+.role-card {
+    border: 0.01rem solid rgba(129, 63, 124, 0.39);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    position: relative;
+    transition: 0.2s ease;
+}
+
+.role-card-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:1rem;
+}
+
+.role-card-title {
+    font-size:1.1rem;
+    font-weight:600;
+}
+
+.role-card-edit {
+    width:1.2rem;
+    cursor:pointer;
+}
+
+.role-card-body {
+    display:flex;
+    flex-direction:column;
+    gap:.8rem;
+}
+
+.role-detail-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:rgb(96,98,120);
+}
+
+.role-detail-label {
+    font-weight:500;
+}

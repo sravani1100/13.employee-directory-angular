@@ -1,0 +1,27 @@
+.project-card {
+    border: 0.01rem solid rgba(129, 63, 124, 0.39);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    position: relative;
+    transition: 0.2s ease;
+}
+
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.project-card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.project-detail-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-card-edit {
+    cursor: pointer;
+}

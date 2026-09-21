@@ -1,0 +1,53 @@
+<div>
+    <div class="search-bar">
+        <div class="search-container">
+            <img
+                src="assets/images/bx-search.png"
+                alt="search icon"
+                class="search-icon">
+
+            <input
+                type="text"
+                placeholder="Search..."
+                class="search-input"
+                id="searchInput"
+                [(ngModel)]="searchText"
+                (input)="onSearch()">
+        </div>
+
+        <div class="topbar-actions">
+            <img
+                src="assets/images/IconButton.png"
+                alt="IconButton"
+                class="icon-btn">
+
+            <img
+                src="assets/images/icon1.png"
+                alt="icon1"
+                class="icon-btn">
+
+            <img
+                src="assets/images/icon2.png"
+                alt="icon2"
+                class="icon-btn">
+
+            <img
+                src="assets/images/icon3.png"
+                alt="icon3"
+                class="icon-btn">
+
+            <div class="user-profile">
+                <img
+                    src="assets/images/avatar-search.png"
+                    alt="user-avatar">
+
+                <div class="user-info">
+                    <span class="user-name">Jhon Abraham</span>
+                    <span class="user-role">Admin</span>
+                </div>
+
+                <select></select>
+            </div>
+        </div>
+    </div>
+</div>
